@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Upload Image</title>
+  <title>Upload Image(base64  encoded)</title>
 </head>
 <body>
    {% if msg %}
    <h1>{{ msg }}</h1>
    {% endif %}
   
-   <h1>Upload new File</h1>
+   <h1>Type Base64 image url</h1>
   
-   <form method=post enctype=multipart/form-data>
-     <p><input type=file name=file>
-        <input type=submit value=Upload>
+   <form  method=post enctype=multipart/form-data>
+    <!-- <p><input type=file name=file>  note:if image/files need to be uploaded -->
+     <!-- <p><input type="file" name="image" accept="image/*"capture="user"> note:attempt at capturing live image from webcam--> 
+    <p><input type=url name=url placeholder="enter base64 url"><br>  
+       <input type=submit value=Upload>
    </form>
 
-   <h1>Result:</h1>
+   <h1>Result(image):</h1>
    {% if img_src %}
      <img src="{{ img_src }}">
    {% endif %}
